@@ -7,7 +7,7 @@ public class DinoGameMovement : MonoBehaviour
     private float crouchSpeed = 2f;
     private float walkSpeed = 4f;
     private float runSpeed = 6f;
-    private float jumpForce = 6f;
+    private float jumpForce = 8f;
     public Transform groundCheckLeft;
     public Transform groundCheckRight;
     public Transform roofCheckLeft;
@@ -18,7 +18,6 @@ public class DinoGameMovement : MonoBehaviour
     private float groundCheckRadius = 0.2f;
     private float roofCheckRadius = 0.2f;
     public LayerMask groundLayer;
-    SpriteRenderer spriteRenderer;
     private bool isGrounded;
     private bool isHeadColliding;
     private bool facingRight = false;
@@ -30,14 +29,15 @@ public class DinoGameMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
         animator = GetComponentInChildren<Animator>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
     {
         inputX = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(rigidbody.linearVelocity.x));
+        animator.SetFloat("RunAnimationSpeed", Mathf.Abs(rigidbody.linearVelocity.x) / moveSpeed);
 
+        // Character direction based on movement direction
         if (facingRight && inputX < 0)
         {
             facingRight = false;
@@ -49,17 +49,15 @@ public class DinoGameMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-
-        animator.SetFloat("RunAnimationSpeed", Mathf.Abs(rigidbody.linearVelocity.x) / moveSpeed);
-
+        // Jumping
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, jumpForce);
         }
 
+        // is on Ground and is on Roof Check
         isGrounded = Physics2D.OverlapCircle(groundCheckLeft.position, groundCheckRadius, groundLayer) || Physics2D.OverlapCircle(groundCheckRight.position, groundCheckRadius, groundLayer);
         isHeadColliding = Physics2D.OverlapCircle(roofCheckLeft.position, roofCheckRadius, groundLayer) || Physics2D.OverlapCircle(roofCheckRight.position, roofCheckRadius, groundLayer);
-
         if (isGrounded)
         {
             animator.SetBool("OnGround", true);
@@ -69,6 +67,7 @@ public class DinoGameMovement : MonoBehaviour
             animator.SetBool("OnGround", false);
         }
 
+        // Crouching
         if (isGrounded && Input.GetKey(KeyCode.LeftControl))
         {
             animator.SetBool("Crouching", true);
@@ -76,7 +75,7 @@ public class DinoGameMovement : MonoBehaviour
             collider.size = new Vector2(1.08f, 1.3f);
             collider.offset = new Vector2(-0.06f, -0.14f);
         }
-        else if (moveSpeed == crouchSpeed && !Input.GetKey(KeyCode.LeftControl) && !isHeadColliding)
+        else if ((moveSpeed == crouchSpeed && !Input.GetKey(KeyCode.LeftControl) && !isHeadColliding) || (!isGrounded && !isHeadColliding && moveSpeed != runSpeed))
         {
             animator.SetBool("Crouching", false);
             moveSpeed = walkSpeed;
@@ -84,6 +83,7 @@ public class DinoGameMovement : MonoBehaviour
             collider.offset = new Vector2(-0.06f, 0.1725656f);
         }
 
+        // Sprinting
         if (Input.GetKey(KeyCode.LeftShift) && !animator.GetBool("Crouching") && isGrounded)
         {
             moveSpeed = runSpeed;
@@ -96,6 +96,7 @@ public class DinoGameMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Move the character
         rigidbody.linearVelocity = new Vector2(inputX * moveSpeed, rigidbody.linearVelocity.y);
     }
 }
