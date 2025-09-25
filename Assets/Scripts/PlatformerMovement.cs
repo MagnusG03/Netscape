@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class DinoGameMovement : MonoBehaviour
+public class PlatformerMovement : MonoBehaviour
 {
     private float moveSpeed = 4f;
     private float crouchSpeed = 2f;
@@ -79,7 +79,7 @@ public class DinoGameMovement : MonoBehaviour
         {
             animator.SetBool("Crouching", false);
             moveSpeed = walkSpeed;
-            collider.size = new Vector2(1.08f, 1.923262f);
+            collider.size = new Vector2(1.08f, 1.8f);
             collider.offset = new Vector2(-0.06f, 0.1725656f);
         }
 
