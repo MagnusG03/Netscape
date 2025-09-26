@@ -11214,6 +11214,11 @@ Transform:
   - {fileID: 996946235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1370798219 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 165532684332453875, guid: 33843f14433a1ef4ea8a8421ea9c1b10, type: 3}
+  m_PrefabInstance: {fileID: 4392039519110340816}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1537933593
 GameObject:
   m_ObjectHideFlags: 0
@@ -11369,6 +11374,51 @@ Transform:
   - {fileID: 1104269624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1726506233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1726506235}
+  - component: {fileID: 1726506234}
+  m_Layer: 0
+  m_Name: PlatformerScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1726506234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726506233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c3f1c320d844442836945c2d81f5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformerGame
+  playerSprite: {fileID: 1370798219}
+--- !u!4 &1726506235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726506233}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.78826, y: 0.85177, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2120379225
 GameObject:
   m_ObjectHideFlags: 0
@@ -11487,6 +11537,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165532684332453875, guid: 33843f14433a1ef4ea8a8421ea9c1b10, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 165532684332453875, guid: 33843f14433a1ef4ea8a8421ea9c1b10, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 165532684332453875, guid: 33843f14433a1ef4ea8a8421ea9c1b10, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 165532684332453875, guid: 33843f14433a1ef4ea8a8421ea9c1b10, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3456732587952672138, guid: 33843f14433a1ef4ea8a8421ea9c1b10, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11531,6 +11597,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6761748647686953789, guid: 33843f14433a1ef4ea8a8421ea9c1b10, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 8446513119099082141, guid: 33843f14433a1ef4ea8a8421ea9c1b10, type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 1726506234}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11604,3 +11678,4 @@ SceneRoots:
   - {fileID: 1204950662}
   - {fileID: 8168670062853081076}
   - {fileID: 1128863070}
+  - {fileID: 1726506235}

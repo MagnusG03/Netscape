@@ -6,6 +6,7 @@ public class PlatformerDamage : MonoBehaviour
     private PlatformerMovement move;
     private float stunDuration = 0.3f;
     private float stunTimer = 0f;
+    public PlatformerGame game;
 
     void Awake()
     {
@@ -27,10 +28,11 @@ public class PlatformerDamage : MonoBehaviour
             bumpVector = transform.position - collision.transform.gameObject.transform.position;
             bumpVector.Normalize();
             var rb = GetComponentInParent<Rigidbody2D>();
-            
+
             move.enabled = false;
             stunTimer = Time.time + stunDuration;
             rb.linearVelocity = new Vector2(bumpVector.x * Random.Range(4f, 8f), 3f);
+            game.DamagePlayer(1);
         }
     }
 }
