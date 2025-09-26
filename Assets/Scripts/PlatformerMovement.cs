@@ -7,7 +7,7 @@ public class PlatformerMovement : MonoBehaviour
     private float crouchSpeed = 2f;
     private float walkSpeed = 4f;
     private float runSpeed = 6f;
-    private float jumpForce = 8f;
+    private float jumpForce = 7f;
     public Transform groundCheckLeft;
     public Transform groundCheckRight;
     public Transform roofCheckLeft;

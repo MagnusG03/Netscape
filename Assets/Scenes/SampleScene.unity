@@ -11624,6 +11624,14 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1635273669300808954, guid: 8cbb9a43ec6d1914d90c148bd97f3502, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635273669300808954, guid: 8cbb9a43ec6d1914d90c148bd97f3502, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635273669300808954, guid: 8cbb9a43ec6d1914d90c148bd97f3502, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.24
       objectReference: {fileID: 0}
