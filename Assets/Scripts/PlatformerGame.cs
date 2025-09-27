@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlatformerGame : MonoBehaviour
 {
     public SpriteRenderer playerSprite;
+    public PlatformerCanvas canvas;
     private Color playerColor;
     private bool gameOver = false;
     private int playerHealth = 3;
@@ -19,6 +21,7 @@ public class PlatformerGame : MonoBehaviour
     {
         if (!gameOver)
         {
+            Time.timeScale = 1f;
             damageInvulnerabilityTimer -= Time.deltaTime;
             invulnerabilityTimer -= Time.deltaTime;
             if (damageInvulnerabilityTimer > 0f)
@@ -35,6 +38,10 @@ public class PlatformerGame : MonoBehaviour
                 Debug.Log("Game Over!");
             }
         }
+        else if (gameOver && Time.timeScale != 0f)
+        {
+            GameOver();
+        }
     }
 
     public void DamagePlayer(int damageAmount)
@@ -50,5 +57,16 @@ public class PlatformerGame : MonoBehaviour
     public void PlayerInvulnerable(float invulnerabilityDuration)
     {
         invulnerabilityTimer = invulnerabilityDuration;
+    }
+
+    private void GameOver()
+    {
+        canvas.gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
