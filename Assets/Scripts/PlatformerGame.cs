@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +13,8 @@ public class PlatformerGame : MonoBehaviour
     private float damageInvulnerabilityTimer = 0f;
     private float damageInvulnerabilityDuration = 1f;
     private float invulnerabilityTimer = 0f;
+    private float continueTimer = 5;
+    private bool continueTimerActive = false;
 
     void Start()
     {
@@ -42,6 +46,18 @@ public class PlatformerGame : MonoBehaviour
         {
             GameOver();
         }
+        if (continueTimerActive)
+        {
+            if (continueTimer > 0)
+            {
+                continueTimer -= Time.deltaTime;
+            }
+            canvas.roundWinPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = "Continuing in " + Math.Ceiling(continueTimer);
+            if (continueTimer <= 0)
+            {
+                RestartGame();
+            }
+        }
     }
 
     public void DamagePlayer(int damageAmount)
@@ -62,11 +78,16 @@ public class PlatformerGame : MonoBehaviour
     private void GameOver()
     {
         canvas.gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Win()
+    {
+        canvas.roundWinPanel.SetActive(true);
+        continueTimerActive = true;
     }
 }
