@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Weakpoint
   - Strongpoint
+  - Ground
   layers:
   - Default
   - TransparentFX

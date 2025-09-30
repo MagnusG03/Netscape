@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62e205ddf0a9cef4eb08b01578afdfe1
+guid: 3ebdca1dba581a940ac1da69a3731d9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2996200791695484276
-    second: grassMidground_0
+      213: 3229169352544653088
+    second: rocketPlatformFalling_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grassMidground_0
+      name: rocketPlatformFalling_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 105
+        x: 12
+        y: 10
+        width: 40
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8a1f37214b5b66d0800000000000000
-      internalID: -2996200791695484276
+      spriteID: 02f8002da6050dc20800000000000000
+      internalID: 3229169352544653088
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grassMidground_0: -2996200791695484276
+      rocketPlatformFalling_0: 3229169352544653088
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,8 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlatformerSlimeAI : MonoBehaviour
+public class PlatformerSpriteAI : MonoBehaviour
 {
+    public GameObject player;
     private Rigidbody2D rb;
     private bool facingLeft = true;
     private int moveDirection = -1;
@@ -25,7 +26,7 @@ public class PlatformerSlimeAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveDirection * moveSpeed, rb.linearVelocityY);
+        rb.linearVelocity = new Vector2(moveDirection * moveSpeed, player.transform.position.y - gameObject.transform.position.y);
     }
 
     void FlipDirection()
