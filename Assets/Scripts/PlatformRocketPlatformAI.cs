@@ -34,7 +34,7 @@ public class PlatformerRocketPlatformAI : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (collision.transform.position.x - gameObject.transform.position.x > 0)
             {
