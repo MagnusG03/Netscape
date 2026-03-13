@@ -4,6 +4,7 @@ public class PlatformerDamage : MonoBehaviour
 {
     private Vector2 bumpVector;
     private PlatformerMovement move;
+    private PlatformerStomp stomp;
     private float stunDuration = 0.3f;
     private float stunTimer = 0f;
     public PlatformerGame game;
@@ -11,6 +12,7 @@ public class PlatformerDamage : MonoBehaviour
     void Awake()
     {
         move = GetComponent<PlatformerMovement>();
+        stomp = GetComponentInChildren<PlatformerStomp>();
     }
 
     void Update()
@@ -25,6 +27,11 @@ public class PlatformerDamage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Strongpoint"))
         {
+            if (stomp && stomp.TryStomp(collision))
+            {
+                return;
+            }
+
             bumpVector = transform.position - collision.transform.gameObject.transform.position;
             bumpVector.Normalize();
             var rb = GetComponentInParent<Rigidbody2D>();

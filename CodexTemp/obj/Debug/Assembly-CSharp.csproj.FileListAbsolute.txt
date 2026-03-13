@@ -1,0 +1,9 @@
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\bin\Debug\Assembly-CSharp.deps.json
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\bin\Debug\Assembly-CSharp.dll
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\obj\Debug\Assembly-CSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\obj\Debug\Assembly-CSharp.sourcelink.json
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\obj\Debug\Assembly-CSharp.dll
+C:\Users\mgrin\Documents\GitHub\Netscape\CodexTemp\obj\Debug\Assembly-CSharp.pdb
