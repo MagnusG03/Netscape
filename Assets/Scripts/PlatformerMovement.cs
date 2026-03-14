@@ -54,7 +54,7 @@ public class PlatformerMovement : MonoBehaviour
         }
 
         // Jumping
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
             rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, jumpForce);
         }
@@ -72,14 +72,14 @@ public class PlatformerMovement : MonoBehaviour
         }
 
         // Crouching
-        if (isGrounded && Input.GetKey(KeyCode.LeftControl))
+        if (isGrounded && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
         {
             animator.SetBool("Crouching", true);
             moveSpeed = crouchSpeed;
             collider.size = new Vector2(standingColliderSize.x, standingColliderSize.y * 2 / 3);
             collider.offset = new Vector2(standingColliderOffset.x, standingColliderOffset.y - standingColliderSize.y / 6);
         }
-        else if ((moveSpeed == crouchSpeed && !Input.GetKey(KeyCode.LeftControl) && !isHeadColliding) || (!isGrounded && !isHeadColliding && moveSpeed != runSpeed))
+        else if ((moveSpeed == crouchSpeed && !(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isHeadColliding) || (!isGrounded && !isHeadColliding && moveSpeed != runSpeed))
         {
             animator.SetBool("Crouching", false);
             moveSpeed = walkSpeed;
